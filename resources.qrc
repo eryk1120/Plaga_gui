@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>IMG/butt.png</file>
+        <file>IMG/Mapa.png</file>
+        <file>tekst/Afryka.txt</file>
+        <file>tekst/Ameryki.txt</file>
+        <file>tekst/Eurazja.txt</file>
+        <file>tekst/Oceania.txt</file>
+        <file>tekst/sasiedztwo.txt</file>
+        <file>IMG/matryca.png</file>
+    </qresource>
+</RCC>
