@@ -55,7 +55,7 @@ void symulacja::hit()
                 }
                 int obrona = world[target].health_care+world[target].GNI;
                 int atak = world[i].ratio;
-                srand(time(0));
+                //srand(time(0));
                 atak = atak + rand()%(100-atak+1);
                 if (atak >= obrona)
                 {
@@ -86,7 +86,7 @@ void symulacja::loty()
         }
         int obrona = world[target].health_care + world[target].GNI;
         int atak = 50;
-        srand(time(0));
+        //srand(time(0));
         atak = atak + rand()%(100-atak);
         if (atak >= obrona)
         {
