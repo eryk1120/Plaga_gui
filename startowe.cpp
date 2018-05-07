@@ -82,10 +82,13 @@ void startowe::on_try_2_clicked()
     QString text = "zarażono " + (ui->KrajeCombo->currentText()) +
     "z datą " + QString::number(ui->spinBoxMiesiac->value()) + "."
             + QString::number(ui->spinBoxRok->value());
-
+// musisz zrobić zmienne r_k i m_k i do nich zwrócić datę końca
+    // jak chce ci się ogarniać signal-sloty to możesz zrobić zabezpieczenie żeby nie dało daty zakończenia przed startem
+    // jak nie to potem to zroibę ( ui_>sinbox-> val  <  ui_>sinbox koncowy-> val
     this->nazwa=ui->KrajeCombo->currentText();
     this->m=ui->spinBoxMiesiac->value();
     this->r=ui->spinBoxRok->value();
+
 
 
     int x = QMessageBox::information(this,"THE FINAL PYTANKO",text);

@@ -12,9 +12,6 @@ void symulacja::fala()
     this->zaraza();
     this->hit();
     this->loty();
-
-
-
 }
 
 void symulacja::zaraza()

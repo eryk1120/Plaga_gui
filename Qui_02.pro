@@ -29,18 +29,22 @@ SOURCES += \
     lista.cpp \
     startowe.cpp \
     symulacja.cpp \
-    czas.cpp
+    czas.cpp \
+    czas_trwania.cpp
 
 HEADERS += \
         mainwindow.h \
     lista.h \
     startowe.h \
     symulacja.h \
-    czas.h
+    czas.h \
+    czas_trwania.h
 
 FORMS += \
         mainwindow.ui \
-    startowe.ui
+    startowe.ui \
+    select_virus.ui \
+    czas_trwania.ui
 
 RESOURCES += \
     resources.qrc

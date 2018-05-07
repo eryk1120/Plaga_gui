@@ -35,8 +35,12 @@ void MainWindow::on_start_clicked()
     this->world.infect(world.szukaj_indeks(start->nazwa),20);
     this->world.set_data(start->m,start->r);
     ui->killEM->setEnabled(true);
+    ui->push_to_the_end->setEnabled(true);
     ui->test_label->setText(QString::number( world.szukaj_indeks(start->nazwa)));
     this->change_color(world.szukaj_indeks(start->nazwa),0);
+
+
+
 
 
 }
@@ -95,11 +99,27 @@ void MainWindow::end_them()
 
     }
 
+
 }
 
 void MainWindow::on_killEM_clicked()
 {
     ui->test_label->setText("wow");
-    this->end_them();
+    //this->end_them();
+    while(!world.czy_koniec())
+    {
+        world.fala();
+        this->update_color();
+        this->update();
+    }
     this->update_color();
+}
+
+
+
+void MainWindow::on_push_to_the_end_clicked()
+{
+    czas_trwania * set_end = new czas_trwania;
+    //set_end->setModal(true);
+    set_end->show();
 }

@@ -32,6 +32,12 @@ private slots:
 
     void on_try_2_clicked();
 
+    void on_spinBoxMiesiac_koniec_valueChanged(int arg1);
+
+    void on_spinBoxMiesiac_valueChanged(const QString &arg1);
+
+    void on_spinBoxMiesiac_valueChanged(int arg1);
+
 signals:
     void end_it();
 
@@ -40,8 +46,13 @@ private:
     symulacja * world1 = new symulacja ();
 public:
     QString nazwa;
-    int m,r;
+    int m,r, mk, rk;
 
 };
 
 #endif // STARTOWE_H
+
+
+
+
+

@@ -4,6 +4,8 @@
 #include "symulacja.h"
 #include "lista.h"
 #include "startowe.h"
+#include "select_virus.h"
+#include "czas_trwania.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
@@ -36,6 +38,10 @@ private slots:
 
 
     void on_killEM_clicked();
+
+
+
+    void on_push_to_the_end_clicked();
 
 private:
     Ui::MainWindow *ui;
