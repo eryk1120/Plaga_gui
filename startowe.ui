@@ -131,6 +131,9 @@
    <property name="text">
     <string>O K </string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">

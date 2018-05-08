@@ -52,8 +52,8 @@ void symulacja::hit()
                 }
                 int obrona = world[target].health_care+world[target].GNI;
                 int atak = world[i].ratio;
-                //srand(time(0));
-                atak = atak + rand()%(100-atak+1);
+                srand(time(0));
+                atak = atak + rand()%(10);
                 if (atak >= obrona)
                 {
                     this->infect(target,10);
@@ -213,7 +213,12 @@ int symulacja::szukaj_indeks(string Nazwa)
 }
 void symulacja::set_data(int m, int r)
 {
-    data.set(m,r);
+    start.set(m,r);
+    aktualny.set(m,r);
+}
+void symulacja::set_koniec(int m, int r)
+{
+    koniec.set(m,r);
 }
 
 bool symulacja::czy_koniec()

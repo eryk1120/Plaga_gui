@@ -91,7 +91,7 @@ void startowe::on_try_2_clicked()
 
 
 
-    int x = QMessageBox::information(this,"THE FINAL PYTANKO",text);
+    QMessageBox::information(this,"THE FINAL PYTANKO",text);
 
     this->close();
 

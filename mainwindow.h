@@ -4,8 +4,10 @@
 #include "symulacja.h"
 #include "lista.h"
 #include "startowe.h"
+#include "czas.h"
 #include "select_virus.h"
 #include "czas_trwania.h"
+#include "data_k_wybor.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
@@ -27,6 +29,7 @@ public:
     void change_color(int indeks,short int procent);
     void end_them();
     void update_color ();
+    void update_color_abs ();
 
 public slots:
 
@@ -35,13 +38,11 @@ public slots:
 private slots:
     void on_start_clicked();
 
-
-
     void on_killEM_clicked();
 
-
-
     void on_push_to_the_end_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

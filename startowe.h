@@ -32,11 +32,6 @@ private slots:
 
     void on_try_2_clicked();
 
-    void on_spinBoxMiesiac_koniec_valueChanged(int arg1);
-
-    void on_spinBoxMiesiac_valueChanged(const QString &arg1);
-
-    void on_spinBoxMiesiac_valueChanged(int arg1);
 
 signals:
     void end_it();

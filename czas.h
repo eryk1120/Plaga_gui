@@ -8,7 +8,7 @@ private:
     //enum month {nic, styczen, luty, marzec, kwiecien, maj, czerwiec,
       //            lipiec, sierpien, wrzesien, pazdziernik, listopad, grudzien};
 
-
+public:
     int  rok;
     int  miesiac;
 public:
@@ -40,6 +40,8 @@ public:
         }
         return *this;
     }
+
+    int odstep_miedzy (czas K);
 
 };
 

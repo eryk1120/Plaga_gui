@@ -31,10 +31,13 @@ private:
 
 
      vector<Kraje>  world;
-     czas data;
+     //czas start, aktualny, koniec;
      long long int infected=0, L_ludzi=0;
      lista lotne;
 
+public:
+
+     czas start, aktualny, koniec;
 
 public:
 
@@ -67,6 +70,7 @@ public:
      int szukaj_indeks(string Nazwa);
      int szukaj_indeks(QString Nazwa);
      void set_data(int m, int r);
+     void set_koniec(int m, int r);
 
 
 

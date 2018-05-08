@@ -30,7 +30,7 @@ SOURCES += \
     startowe.cpp \
     symulacja.cpp \
     czas.cpp \
-    czas_trwania.cpp
+    data_k_wybor.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,13 +38,12 @@ HEADERS += \
     startowe.h \
     symulacja.h \
     czas.h \
-    czas_trwania.h
+    data_k_wybor.h
 
 FORMS += \
         mainwindow.ui \
     startowe.ui \
-    select_virus.ui \
-    czas_trwania.ui
+    data_k_wybor.ui
 
 RESOURCES += \
     resources.qrc

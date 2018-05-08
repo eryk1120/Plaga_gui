@@ -35,6 +35,7 @@ void MainWindow::on_start_clicked()
     this->world.infect(world.szukaj_indeks(start->nazwa),20);
     this->world.set_data(start->m,start->r);
     ui->killEM->setEnabled(true);
+    ui->pushButton->setEnabled(true);
     ui->push_to_the_end->setEnabled(true);
     ui->test_label->setText(QString::number( world.szukaj_indeks(start->nazwa)));
     this->change_color(world.szukaj_indeks(start->nazwa),0);
@@ -89,16 +90,22 @@ void MainWindow::update_color()
             change_color(i,world.dej_ratio(i));
     }
 }
+void MainWindow::update_color_abs()
+{
+    for (int i=0;i<world.size();i++)
+    {
+        change_color(i,world.dej_ratio(i));
+    }
+}
 
 void MainWindow::end_them()
 {
     while(!world.czy_koniec())
     {
         world.fala();
-        this->update_color();
 
     }
-
+    this->update_color();
 
 }
 
@@ -109,17 +116,37 @@ void MainWindow::on_killEM_clicked()
     while(!world.czy_koniec())
     {
         world.fala();
-        this->update_color();
-        this->update();
+        //this->update_color();
+        //this->update();
     }
-    this->update_color();
+    this->update_color_abs();
 }
 
 
 
 void MainWindow::on_push_to_the_end_clicked()
 {
-    czas_trwania * set_end = new czas_trwania;
-    //set_end->setModal(true);
-    set_end->show();
+
+    data_k_wybor * final = new data_k_wybor;
+    final->startowe=world.start;
+    final->set_up();
+    ui->test_label->setText(QString::number(final->startowe.rok));
+    final->setModal(true);
+    final->exec();
+
+    ui->spinBox_okrazenia->setValue(abs(final->startowe.odstep_miedzy(final->koncowe)));
+
+    ui->pushButton->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->test_label->setText("WTF");
+    for (int i=0 ; i < ui->spinBox_okrazenia->value() ; i++)
+    {
+        world.fala();
+        //this->update_color();
+        //this->update();
+    }
+    this->update_color_abs();
 }
