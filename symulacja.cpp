@@ -134,9 +134,49 @@ void symulacja::dodaj_element(string NazwaPliku)
     return ;
 }
 
+void symulacja::dodaj_chorby(string nazwa_pliku)
+{
+    ifstream plik (nazwa_pliku.c_str());
+
+    if(!plik.good())
+    {
+        return;
+    }
+
+    while (!plik.eof())
+    {
+        Choroby choroba;
+        choroba.nazwa_choroby="";
+        plik.ignore(1);
+        while (!plik.eof() && !(plik.peek()>='0' && plik.peek()<='9'))   // bierze sobie po literce nazwę państwa
+        {                                                                // i zerka czy następna jest cyfrą
+
+            char temp;
+            plik.get(temp);
+            choroba.nazwa_choroby=choroba.nazwa_choroby + temp;
+            // robi słowow po literce
+        }
+//jak następna jest cyfrą to czyta normalnie dane do odpowiednich miejsc
+        plik  >>choroba.BRN>>choroba.czas;
+        virus.push_back(choroba);
+    }
+    return ;
+
+}
+
 int symulacja::dej_ratio(int i)
 {
     return world[i].ratio;
+}
+
+int symulacja::dej_BRN(int i)
+{
+    return virus[i].BRN;
+}
+
+int symulacja::dej_czas(int i)
+{
+    return virus[i].czas;
 }
 
 void symulacja::czytaj_macierz (string NazwaPliku)   // bierze po linijce z pliku i dodaje do elementu vectora nowy element jak napotka '1' (np w linijce 24, linijka[100]==1 więc kraj 24 graniczy z krajem 100
@@ -160,13 +200,33 @@ void symulacja::czytaj_macierz (string NazwaPliku)   // bierze po linijce z plik
     }
 }
 
+void symulacja::reset()
+{
+    world.clear();
+    dodaj_element("tekst/Afryka.txt");
+    dodaj_element("tekst/Ameryki.txt");
+    dodaj_element("tekst/Oceania.txt");
+    dodaj_element("tekst/Eurazja.txt");
+    czytaj_macierz("tekst/sasiedztwo.txt");
+    dodaj_chorby("tekst/Choroby.txt");
+
+    for(unsigned int i=0; i<world.size(); i++)
+    {
+        lotne.dodaj_element_po(i);
+        L_ludzi+=world[i].ludnosc;
+    }
+}
+
 symulacja::symulacja()
 {
-    dodaj_element("Afryka.txt");
-    dodaj_element("Ameryki.txt");
-    dodaj_element("Oceania.txt");
-    dodaj_element("Eurazja.txt");
-    czytaj_macierz("sasiedztwo.txt");
+    dodaj_element("tekst/Afryka.txt");
+    dodaj_element("tekst/Ameryki.txt");
+    dodaj_element("tekst/Oceania.txt");
+    dodaj_element("tekst/Eurazja.txt");
+    czytaj_macierz("tekst/sasiedztwo.txt");
+    dodaj_chorby("tekst/Choroby.txt");
+
+    lotne.clean();
 
     for(unsigned int i=0; i<world.size(); i++)
     {
@@ -183,6 +243,11 @@ symulacja::~symulacja()
 int symulacja::size()
 {
     return world.size();
+}
+
+int symulacja::size2()
+{
+    return virus.size();
 }
 
 bool symulacja::czy_zmiana(int i)
@@ -221,10 +286,32 @@ void symulacja::set_koniec(int m, int r)
     koniec.set(m,r);
 }
 
+string symulacja::dej_chorbe(int i)
+{
+    return virus[i].nazwa_choroby;
+}
+
+int symulacja::dej_ludnosc(int i)
+{
+    return  world[i].ludnosc;
+}
+
+int symulacja::dej_chorzy(int i)
+{
+    return world[i].chorzy;
+}
+
+int symulacja::dej_powierzchnia(int i)
+{
+    return world[i].powierzchnia;
+}
+
+
 bool symulacja::czy_koniec()
 {
     for(int i=0;i<world.size();i++)
         if (world[i].chorzy<world[i].ludnosc)
+
             return false;
     return true;
 }

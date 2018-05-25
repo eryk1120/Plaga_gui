@@ -15,12 +15,18 @@ startowe::startowe(QWidget *parent) :
         ui->KrajeCombo->addItem(QString::fromStdString( world1->dej_nazwe(i)) );
     }
 
+    for(int i=0; i<7; i++)
+    {
+        ui->combChoroba->addItem(QString::fromStdString( virus1->dej_chorbe(i)));   
+    }
+
 }
 
 startowe::~startowe()
 {
     delete ui;
 }
+
 void startowe::on_butt1_clicked()
 {
     ui->KrajeCombo->clear();
@@ -29,6 +35,7 @@ void startowe::on_butt1_clicked()
         ui->KrajeCombo->addItem(QString::fromStdString( world1->dej_nazwe(i)) );
     }
 }
+
 void startowe::on_butt2_clicked()
 {
     ui->KrajeCombo->clear();
@@ -37,6 +44,7 @@ void startowe::on_butt2_clicked()
         ui->KrajeCombo->addItem(QString::fromStdString( world1->dej_nazwe(i)) );
     }
 }
+
 void startowe::on_butt3_clicked()
 {
     ui->KrajeCombo->clear();
@@ -45,6 +53,7 @@ void startowe::on_butt3_clicked()
         ui->KrajeCombo->addItem(QString::fromStdString( world1->dej_nazwe(i)) );
     }
 }
+
 void startowe::on_butt4_clicked()
 {
     ui->KrajeCombo->clear();
@@ -54,37 +63,42 @@ void startowe::on_butt4_clicked()
     }
 }
 
-
-
-/*
-void startowe::on_OKEJKA_accepted()
+void startowe::on_butt5_clicked()
 {
-    QString text = "pandemia rozpocznie się w " + (ui->KrajeCombo->currentText()) +
-    "z datą " + QString::number(ui->spinBoxMiesiac->value()) + "."
-            + QString::number(ui->spinBoxRok->value());
-
-    startowe * ptr= this;
-
-    int x = QMessageBox::question(this,"THE FINAL PYTANKO",text);
-
-    if(!x)
-    {
-
-    }
+    ui->combChoroba->clear();
+    for(int i=0; i<7; i++)
+        ui->combChoroba->addItem(QString::fromStdString( virus1->dej_chorbe(i)));
+    ui->obraz_choroba->clear();
+    ui->obraz_choroba->setPixmap(QPixmap::fromImage(*wirus));
 }
-*/
+
+void startowe::on_butt6_clicked()
+{
+    ui->combChoroba->clear();
+    for(int i=7; i<13; i++)
+        ui->combChoroba->addItem(QString::fromStdString( virus1->dej_chorbe(i)));
+    ui->obraz_choroba->clear();
+    ui->obraz_choroba->setPixmap(QPixmap::fromImage(*bakteria));
+}
+
+void startowe::on_butt7_clicked()
+{
+    ui->combChoroba->clear();
+    for(int i=13; i<17; i++)
+        ui->combChoroba->addItem(QString::fromStdString( virus1->dej_chorbe(i)));
+    ui->obraz_choroba->clear();
+    ui->obraz_choroba->setPixmap(QPixmap::fromImage(*pasozyt));
+}
+
 void startowe::on_try_2_clicked()
 {
     this->close();
 
 
 
-    QString text = "zarażono " + (ui->KrajeCombo->currentText()) +
-    "z datą " + QString::number(ui->spinBoxMiesiac->value()) + "."
+    QString text = " Zarażono: " + (ui->KrajeCombo->currentText()) +
+    "\n Chorobą: "+ (ui->combChoroba->currentText()) +"\n Dnia: " + QString::number(ui->spinBoxMiesiac->value()) + "."
             + QString::number(ui->spinBoxRok->value());
-// musisz zrobić zmienne r_k i m_k i do nich zwrócić datę końca
-    // jak chce ci się ogarniać signal-sloty to możesz zrobić zabezpieczenie żeby nie dało daty zakończenia przed startem
-    // jak nie to potem to zroibę ( ui_>sinbox-> val  <  ui_>sinbox koncowy-> val
     this->nazwa=ui->KrajeCombo->currentText();
     this->m=ui->spinBoxMiesiac->value();
     this->r=ui->spinBoxRok->value();
@@ -96,6 +110,8 @@ void startowe::on_try_2_clicked()
     this->close();
 
 }
+
+
 void end_them()
 {
 

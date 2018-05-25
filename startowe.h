@@ -28,9 +28,15 @@ private slots:
 
     void on_butt4_clicked();
 
-    //void on_OKEJKA_accepted();
+    void on_butt5_clicked();
+
+    void on_butt6_clicked();
+
+    void on_butt7_clicked();
 
     void on_try_2_clicked();
+
+
 
 
 signals:
@@ -39,15 +45,19 @@ signals:
 private:
     Ui::startowe *ui;
     symulacja * world1 = new symulacja ();
+    symulacja * virus1 = new symulacja ();
 public:
     QString nazwa;
     int m,r, mk, rk;
 
+    QImage * wirus = new QImage(":/IMG/Wirus.png");
+    QImage * bakteria = new QImage(":/IMG/Bakteria.png");
+    QImage * pasozyt = new QImage(":/IMG/Pasozyt.png");
+
+
 };
 
 #endif // STARTOWE_H
-
-
 
 
 

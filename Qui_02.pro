@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +30,11 @@ SOURCES += \
     startowe.cpp \
     symulacja.cpp \
     czas.cpp \
-    data_k_wybor.cpp
+    data_k_wybor.cpp \
+    historyjka.cpp \
+    instrukcja.cpp \
+    przywitanie.cpp \
+    muzyka.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,12 +42,25 @@ HEADERS += \
     startowe.h \
     symulacja.h \
     czas.h \
-    data_k_wybor.h
+    data_k_wybor.h \
+    historyjka.h \
+    instrukcja.h \
+    przywitanie.h \
+    muzyka.h
 
 FORMS += \
         mainwindow.ui \
     startowe.ui \
-    data_k_wybor.ui
+    data_k_wybor.ui \
+    historyjka.ui \
+    instrukcja.ui \
+    przywitanie.ui \
+    muzyka.ui
 
 RESOURCES += \
     resources.qrc
+
+QMAKE_CXXFLAGS += -std=gnu++14
+
+QMAKE_CXXFLAGS += -std=gnu++11
+
