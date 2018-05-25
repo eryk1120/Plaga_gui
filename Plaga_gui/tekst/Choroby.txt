@@ -1,0 +1,18 @@
+
+Odra15 8
+Ospa6 14
+Rozyczka6 14
+Swinka5 5
+SARS4 10
+Grypa3 8
+Ebola2 42
+Krztusiec5 5 
+B³onnica7 4
+Cholera6 7
+Gruzlica5 14
+W¹glik15 7
+Angina7 10
+Malaria7 14
+Mucha Srubowa20 3
+Pch³a Piaskowa15 2
+Maczu¿nik100 1

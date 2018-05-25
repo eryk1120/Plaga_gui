@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/tekst">
+        <file>tekst/Afryka.txt</file>
+        <file>tekst/Ameryki.txt</file>
+        <file>tekst/Eurazja.txt</file>
+        <file>tekst/Oceania.txt</file>
+        <file>tekst/sasiedztwo.txt</file>
+    </qresource>
+</RCC>
