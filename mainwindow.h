@@ -63,8 +63,6 @@ private slots:
 
     void on_ButMuzyka_clicked();
 
-    void on_pushButton_2_clicked();
-
 private:
     Ui::MainWindow *ui;
     symulacja world;

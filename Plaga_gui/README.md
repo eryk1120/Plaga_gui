@@ -1,1 +1,0 @@
-# Plaga_gui

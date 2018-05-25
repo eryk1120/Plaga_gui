@@ -83,16 +83,6 @@ void lista::usun_dowolny(int numer)
             return true;
         return false;
     }
-
-    void lista::clean()
-    {
-        while (head->nast != NULL)
-        {
-            node * temp = head;
-            head=head->nast;
-            delete temp;
-        }
-    }
     int lista::dej(int N)
     {
         //if (head==NULL)

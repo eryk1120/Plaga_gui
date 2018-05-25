@@ -200,23 +200,6 @@ void symulacja::czytaj_macierz (string NazwaPliku)   // bierze po linijce z plik
     }
 }
 
-void symulacja::reset()
-{
-    world.clear();
-    dodaj_element("tekst/Afryka.txt");
-    dodaj_element("tekst/Ameryki.txt");
-    dodaj_element("tekst/Oceania.txt");
-    dodaj_element("tekst/Eurazja.txt");
-    czytaj_macierz("tekst/sasiedztwo.txt");
-    dodaj_chorby("tekst/Choroby.txt");
-
-    for(unsigned int i=0; i<world.size(); i++)
-    {
-        lotne.dodaj_element_po(i);
-        L_ludzi+=world[i].ludnosc;
-    }
-}
-
 symulacja::symulacja()
 {
     dodaj_element("tekst/Afryka.txt");
@@ -225,8 +208,6 @@ symulacja::symulacja()
     dodaj_element("tekst/Eurazja.txt");
     czytaj_macierz("tekst/sasiedztwo.txt");
     dodaj_chorby("tekst/Choroby.txt");
-
-    lotne.clean();
 
     for(unsigned int i=0; i<world.size(); i++)
     {
