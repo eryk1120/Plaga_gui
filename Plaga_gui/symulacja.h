@@ -60,6 +60,7 @@ public:
      void dodaj_element(string nazwa_pliku);// tworzy wektor z krajami
      void dodaj_chorby(string nazwa_pliku);
      void czytaj_macierz (string NazwaPliku);// dodaje do gotowego wektora listy sąsiadów
+     void reset();
 
 
      //zaraza

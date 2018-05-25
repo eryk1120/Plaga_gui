@@ -22,6 +22,7 @@ void wypisz_liste ();
 void usun_dowolny(int);
 void usun_pierwszy();
 bool czy_pusta();
+void clean();
 // bedzie jeszcze usuwanie elementów po idndeksie i jakimś sposobem żeby listy mogły się wymieniać elementami
 // więcej metod chyba nie potrzeba, bo kolejność u nas nie gra roli. chyba, że destruktor bo nie wiem czy c++ jest na tyle mądry żeby sam dorze usuwał te listy, chwilowo czyści po nas windows bo program i
 
