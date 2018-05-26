@@ -219,6 +219,24 @@ symulacja::symulacja()
 symulacja::~symulacja()
 {
 
+
+}
+
+void symulacja::reset()
+{
+    for(int i=0; i<world.size();i++)
+    {
+        world[i].chorzy=0;
+    }
+
+    lotne.clean_list();
+
+    for(unsigned int i=0; i<world.size(); i++)
+    {
+        lotne.dodaj_element_po(i);
+        L_ludzi+=world[i].ludnosc;
+    }
+
 }
 
 int symulacja::size()

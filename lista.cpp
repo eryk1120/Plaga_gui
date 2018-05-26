@@ -83,6 +83,15 @@ void lista::usun_dowolny(int numer)
             return true;
         return false;
     }
+
+    void lista::clean_list()
+    {
+        while(!this->czy_pusta())
+        {
+            this->usun_pierwszy();
+        }
+        return;
+    }
     int lista::dej(int N)
     {
         //if (head==NULL)

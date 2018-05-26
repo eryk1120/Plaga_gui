@@ -225,3 +225,10 @@ void MainWindow::on_ButMuzyka_clicked()
     muz.setModal(true);
     muz.exec();
 }
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    world.reset();
+    mapa = new QImage(":/IMG/Mapa.png");
+    ui->MAPKA->setPixmap(QPixmap::fromImage(*mapa));
+}

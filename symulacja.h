@@ -55,6 +55,7 @@ public:
 
      symulacja();     
      ~symulacja();
+     void reset();
 
      //pomocnicze konstruktora
      void dodaj_element(string nazwa_pliku);// tworzy wektor z krajami
