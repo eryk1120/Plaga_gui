@@ -55,6 +55,8 @@ void MainWindow::on_start_clicked()
 
 void MainWindow::change_color(int indeks, short int procent)
 {
+    if (world.dej_chorzy(indeks) == 0)
+        return;
     for (int i=0; i < matryca->width(); i++)
     {
         for (int j=0; j < matryca->height(); j++)
@@ -78,8 +80,8 @@ void MainWindow::update_color()
 {
     for (int i=0;i<world.size();i++)
     {
-        if (world.czy_zmiana(i))
-            change_color(i,world.dej_ratio(i));
+
+        change_color(i,world.dej_chorzy(i) / world.dej_ludnosc(i));
     }
 }
 void MainWindow::update_color_abs()
