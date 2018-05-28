@@ -29,8 +29,8 @@ void symulacja::zaraza()
 
             if (world[i].chorzy > world[i].ludnosc)
                 world[i].chorzy = world[i].ludnosc;  //limit
-            world[i].old_ratio=world[i].ratio;
-            world[i].ratio=100 * world[i].chorzy / world[i].ludnosc;
+            //world[i].old_ratio=world[i].ratio;
+            //world[i].ratio=100 * world[i].chorzy / world[i].ludnosc;
 
         }
     }
@@ -56,7 +56,8 @@ void symulacja::hit()
                     continue;
                 }
                 int obrona = world[target].health_care+world[target].GNI;
-                int atak = world[i].ratio;
+                int atak = 100
+                        * world[i].chorzy/world[i].ludnosc;
                 srand(time(0));
                 atak = atak + rand()%(10);
                 if (atak >= obrona)
@@ -171,7 +172,7 @@ void symulacja::dodaj_chorby(string nazwa_pliku)
 
 int symulacja::dej_ratio(int i)
 {
-    return world[i].ratio;
+    return (world[i].chorzy / world[i].ludnosc) * 100;
 }
 
 int symulacja::dej_BRN(int i)
@@ -259,7 +260,7 @@ symulacja::symulacja()
     for(unsigned int i=0; i<world.size(); i++)
     {
         lotne.dodaj_element_po(i);
-        L_ludzi+=world[i].ludnosc;
+        //L_ludzi+=world[i].ludnosc;
     }
 }
 
@@ -280,7 +281,7 @@ void symulacja::reset()
         for(unsigned int i=0; i<world.size(); i++)
         {
             lotne.dodaj_element_po(i);
-            L_ludzi+=world[i].ludnosc;
+            //L_ludzi+=world[i].ludnosc;
         }
 }
 
@@ -294,12 +295,7 @@ int symulacja::size2()
     return virus.size();
 }
 
-bool symulacja::czy_zmiana(int i)
-{
-    if (world[i].ratio != world[i].old_ratio)
-        return true;
-    return false;
-}
+
 string symulacja::dej_nazwe(int i)
 {
     return world[i].nazwa;
@@ -355,7 +351,6 @@ bool symulacja::czy_koniec()
 {
     for(int i=0;i<world.size();i++)
         if (world[i].chorzy<world[i].ludnosc)
-
             return false;
     return true;
 }

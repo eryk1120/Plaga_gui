@@ -31,10 +31,29 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void setlabel(QString);
+    /*!
+     * \brief change_color
+     * aktualizuje kolor danego państwa na mapie
+     * \param indeks
+     * indeks państwa
+     * \param procent
+     * % zarażenia
+     */
     void change_color(int indeks,short int procent);
+    /*!
+     * \brief end_them
+     * metoda działająca do zarażenia całego świata
+     */
     void end_them();
+    /*!
+     * \brief update_color
+     * akualizuje kolor całego świata
+     */
     void update_color ();
+    /*!
+     * \brief update_color_abs
+     * aktualizuje kolor całego świata
+     */
     void update_color_abs ();
     void odczytaj_plik();
 
@@ -70,7 +89,13 @@ private slots:
     void on_ButReset_clicked();
 
 private:
+
     Ui::MainWindow *ui;
+    /*!
+     * \brief world
+     * obiekt symulacji
+     *
+     */
     symulacja world;
     symulacja virus;
     Historyjka hist;
@@ -80,7 +105,15 @@ private:
 
 
 public:
+    /*!
+     * \brief matryca
+     * zdjęcie z którego program odczytuje miejsce w którym leży państwo
+     */
     QImage * matryca = new QImage(":/IMG/matryca.png");
+    /*!
+     * \brief mapa
+     * zdjęcie wyświetlane użytkownikowi i zmieniane w czasie
+     */
     QImage * mapa = new QImage(":/IMG/Mapa.png");
 
     QMediaPlayer *muza = new QMediaPlayer();
