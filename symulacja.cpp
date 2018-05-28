@@ -88,9 +88,9 @@ void symulacja::loty()
             continue;
         }
         int obrona = world[target].health_care + world[target].GNI;
-        int atak = 50;
-        //srand(time(0));
-        atak = atak + rand()%(100-atak);
+        int atak = 20;
+        srand(time(0));
+        atak = atak + rand()%(20);
         if (atak >= obrona)
         {
             this->infect(target,10);

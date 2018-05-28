@@ -86,6 +86,7 @@ private slots:
 
     void on_ButMute_clicked();
 
+
     void on_ButReset_clicked();
 
 private:
