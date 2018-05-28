@@ -20,7 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
-
+    ofstream plik("Historia.txt");
+    plik.close();
     ui->MAPKA->setPixmap(QPixmap::fromImage(*mapa));
 
 
@@ -31,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent) :
     przyw.setModal(true);
     przyw.exec();
 
+
+    muz.startow();
 }
 
 MainWindow::~MainWindow()
@@ -39,6 +42,7 @@ MainWindow::~MainWindow()
 }
 void MainWindow::on_start_clicked()
 {
+    muz.rewind();
     startowe *start = new startowe;
     start->setModal(true);
     start->exec();
@@ -48,15 +52,15 @@ void MainWindow::on_start_clicked()
     ui->pushButton->setEnabled(true);
     ui->push_to_the_end->setEnabled(true);
     this->change_color(world.szukaj_indeks(start->nazwa),0);
-
 }
 
 
 
 void MainWindow::change_color(int indeks, short int procent)
 {
-    if (world.dej_chorzy(indeks) == 0)
+    if(world.dej_chorzy(indeks)==0)
         return;
+
     for (int i=0; i < matryca->width(); i++)
     {
         for (int j=0; j < matryca->height(); j++)
@@ -143,6 +147,7 @@ QString MainWindow::zapisywanie()
 
 void MainWindow::end_them()
 {
+
     while(!world.czy_koniec())
     {
         world.fala();
@@ -152,6 +157,7 @@ void MainWindow::end_them()
 
 void MainWindow::on_killEM_clicked()
 {
+    muz.rewind();
     while(!world.czy_koniec())
     {
         world.fala();
@@ -169,7 +175,7 @@ void MainWindow::on_killEM_clicked()
 
 void MainWindow::on_push_to_the_end_clicked()
 {
-
+    muz.rewind();
     data_k_wybor * final = new data_k_wybor;
     final->startowe=world.start;
     final->set_up();
@@ -183,7 +189,7 @@ void MainWindow::on_push_to_the_end_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-
+    muz.rewind();
     for (int i=0 ; i < ui->spinBox_okrazenia->value() ; i++)
     {
         world.fala();
@@ -200,13 +206,14 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_Help_clicked()
 {
+    muz.rewind();
     inst.setModal(true);
     inst.exec();
 }
 
 void MainWindow::on_pushSave_clicked()
 {
-
+    muz.rewind();
     QString do_zapisu = zapisywanie();
     hist.dodaj_el(do_zapisu);
     hist.zapisz_do_pliku(do_zapisu);
@@ -214,7 +221,7 @@ void MainWindow::on_pushSave_clicked()
 
 void MainWindow::on_PushHistoria_clicked()
 {
-
+    muz.rewind();
     hist.aktualizuj_lista();
     hist.setModal(true);
     hist.exec();
@@ -224,12 +231,28 @@ void MainWindow::on_PushHistoria_clicked()
 
 void MainWindow::on_ButMuzyka_clicked()
 {
+    muz.rewind();
     muz.setModal(true);
     muz.exec();
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_ButMute_clicked()
 {
+    if(ui->ButMute->text() == "Mute")
+    {
+        muz.mute();
+        ui->ButMute->setText("Unmute");
+    }
+    else
+    {
+        muz.unmute();
+        ui->ButMute->setText("Mute");
+    }
+}
+
+void MainWindow::on_ButReset_clicked()
+{
+    muz.rewind();
     world.reset();
     mapa = new QImage(":/IMG/Mapa.png");
     ui->MAPKA->setPixmap(QPixmap::fromImage(*mapa));

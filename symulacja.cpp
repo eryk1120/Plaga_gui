@@ -20,7 +20,12 @@ void symulacja::zaraza()
     {
         if (world[i].chorzy!=0 && world[i].ludnosc!=world[i].chorzy)
         {
-            world[i].chorzy = world[i].chorzy * 5;   // tu wstawić algo zarazy z alphy potem
+            srand(time(NULL));
+            int k=1+rand()%10;
+
+            double b=ustaw_b(i);
+            world[i].chorzy = (world[i].chorzy *virus[i].czas*b*virus[i].BRN*world[i].gestosc)/(world[i].health_care*k) ;   // tu wstawić algo zarazy z alphy potem
+
 
             if (world[i].chorzy > world[i].ludnosc)
                 world[i].chorzy = world[i].ludnosc;  //limit
@@ -127,7 +132,7 @@ void symulacja::dodaj_element(string NazwaPliku)
             // robi słowow po literce
         }
 //jak następna jest cyfrą to czyta normalnie dane do odpowiednich miejsc
-        plik  >> kraj.ludnosc>> kraj.powierzchnia >> kraj.dos_morze >> kraj.health_care >> kraj.GNI;
+        plik  >> kraj.ludnosc>> kraj.powierzchnia >> kraj.dos_morze >> kraj.health_care >> kraj.GNI>>kraj.klimat;
         kraj.gestosc = kraj.ludnosc/kraj.powierzchnia;
         world.push_back(kraj);
     }
@@ -157,7 +162,7 @@ void symulacja::dodaj_chorby(string nazwa_pliku)
             // robi słowow po literce
         }
 //jak następna jest cyfrą to czyta normalnie dane do odpowiednich miejsc
-        plik  >>choroba.BRN>>choroba.czas;
+        plik  >>choroba.BRN>>choroba.czas>>choroba.czy_pasozyt;
         virus.push_back(choroba);
     }
     return ;
@@ -177,6 +182,48 @@ int symulacja::dej_BRN(int i)
 int symulacja::dej_czas(int i)
 {
     return virus[i].czas;
+}
+
+double symulacja::ustaw_b(int i)
+{
+    double b;
+    int m=aktualny.miesiac;
+
+    if(world[i].klimat==1)
+    {
+    if(virus[i].czy_pasozyt==0)
+    {
+        if(m==12 || m==1 || m==2)
+            b=0.75;
+        if(m==3 || m==4 || m==5)
+            b=0.5;
+        if(m==6 || m==7 || m==8)
+            b=0.25;
+        if(m==9 || m==10 || m==11)
+            b=1;
+    }
+    else
+    {
+        if(m==12 || m==1 || m==2)
+            b=0.25;
+        if(m==3 || m==4 || m==5)
+            b=0.75;
+        if(m==6 || m==7 || m==8)
+            b=1;
+        if(m==9 || m==10 || m==11)
+            b=0.5;
+    }
+    }
+
+    if(world[i].klimat==0)
+    {
+        if(virus[i].czy_pasozyt==1)
+            b=0.25;
+        if(virus[i].czy_pasozyt==0)
+            b=1;
+    }
+
+    return b;
 }
 
 void symulacja::czytaj_macierz (string NazwaPliku)   // bierze po linijce z pliku i dodaje do elementu vectora nowy element jak napotka '1' (np w linijce 24, linijka[100]==1 więc kraj 24 graniczy z krajem 100
@@ -219,24 +266,22 @@ symulacja::symulacja()
 symulacja::~symulacja()
 {
 
-
 }
 
 void symulacja::reset()
 {
     for(int i=0; i<world.size();i++)
-    {
-        world[i].chorzy=0;
-    }
+       {
+            world[i].chorzy=0;
+        }
 
-    lotne.clean_list();
+        lotne.clean_list();
 
-    for(unsigned int i=0; i<world.size(); i++)
-    {
-        lotne.dodaj_element_po(i);
-        L_ludzi+=world[i].ludnosc;
-    }
-
+        for(unsigned int i=0; i<world.size(); i++)
+        {
+            lotne.dodaj_element_po(i);
+            L_ludzi+=world[i].ludnosc;
+        }
 }
 
 int symulacja::size()
@@ -314,3 +359,4 @@ bool symulacja::czy_koniec()
             return false;
     return true;
 }
+

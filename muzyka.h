@@ -17,6 +17,14 @@ public:
     explicit muzyka(QWidget *parent = 0);
     ~muzyka();
 
+    void mute();
+
+    void unmute();
+
+    void startow();
+
+    void rewind();
+
 private slots:
     void on_ButWybierz_clicked();
 

@@ -10,6 +10,9 @@
 	<file>IMG/Strona3.png</file>
 	<file>IMG/Strona4.png</file>
 	<file>IMG/Strona5.png</file>
+	<file>IMG/Od_Tworcow1.png</file>
+	<file>IMG/Od_Tworcow2.png</file>
+	<file>IMG/Od_Tworcow3.png</file>
 	<file>IMG/MENU.png</file>
         <file>tekst/Afryka.txt</file>
         <file>tekst/Ameryki.txt</file>
@@ -17,6 +20,7 @@
         <file>tekst/Oceania.txt</file>
         <file>tekst/sasiedztwo.txt</file>
 	<file>tekst/Choroby.txt</file>
+	<file>tekst/Pierwsze_odpalenie.txt</file>
 	<file>SFX/BG.mp3</file>
     </qresource>
 </RCC>

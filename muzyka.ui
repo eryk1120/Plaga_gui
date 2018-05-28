@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>366</width>
-    <height>130</height>
+    <height>188</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="ButGraj">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>10</y>
+     <x>10</x>
+     <y>50</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="ButPausa">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>10</y>
+     <x>90</x>
+     <y>50</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -55,8 +55,8 @@
   <widget class="QPushButton" name="ButStop">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>10</y>
+     <x>170</x>
+     <y>50</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -69,7 +69,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>40</y>
+     <y>80</y>
      <width>71</width>
      <height>16</height>
     </rect>
@@ -85,7 +85,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
+     <y>100</y>
      <width>351</width>
      <height>19</height>
     </rect>
@@ -107,7 +107,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
+     <y>130</y>
      <width>351</width>
      <height>23</height>
     </rect>
@@ -120,8 +120,8 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>40</y>
-     <width>21</width>
+     <y>80</y>
+     <width>31</width>
      <height>16</height>
     </rect>
    </property>
@@ -130,6 +130,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>261</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
  </widget>

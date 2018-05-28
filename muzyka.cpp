@@ -18,6 +18,8 @@ muzyka::muzyka(QWidget *parent) :
     connect(Muzyczka, &QMediaPlayer::durationChanged, [&](qint64 dur){
         ui->progressBar->setMaximum(dur);
     });
+
+    ui->lineEdit->setText("Projekt Pandemic OST");
 }
 
 muzyka::~muzyka()
@@ -25,12 +27,43 @@ muzyka::~muzyka()
     delete ui;
 }
 
+void muzyka::mute()
+{
+    Muzyczka->setMuted(true);
+}
+
+void muzyka::unmute()
+{
+    Muzyczka->setMuted(false);
+}
+
+void muzyka::startow()
+{
+    Muzyczka->setMedia(QUrl("qrc:/SFX/BG.mp3"));
+    Muzyczka->setVolume(60);
+    Muzyczka->play();
+}
+
+void muzyka::rewind()
+{
+    if(ui->lineEdit->text()=="Projekt Pandemic OST")
+    if(Muzyczka->state()==QMediaPlayer::StoppedState)
+    {
+        Muzyczka->setPosition(0);
+        Muzyczka->play();
+    }
+}
+
 void muzyka::on_ButWybierz_clicked()
 {
     Muzyczka->stop();
     QString plik_nazwa = QFileDialog::getOpenFileName(this, "Otwórz");
         if(plik_nazwa.isEmpty())
+        {
+            Muzyczka->setMedia(QUrl("qrc:/SFX/BG.mp3"));
             return;
+        }
+        ui->lineEdit->setText(plik_nazwa);
         Muzyczka->setMedia(QUrl::fromLocalFile(plik_nazwa));
         Muzyczka->setVolume(0);
         on_ButGraj_clicked();

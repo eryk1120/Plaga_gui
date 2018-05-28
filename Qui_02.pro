@@ -34,7 +34,8 @@ SOURCES += \
     historyjka.cpp \
     instrukcja.cpp \
     przywitanie.cpp \
-    muzyka.cpp
+    muzyka.cpp \
+    od_tworcow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -46,7 +47,8 @@ HEADERS += \
     historyjka.h \
     instrukcja.h \
     przywitanie.h \
-    muzyka.h
+    muzyka.h \
+    od_tworcow.h
 
 FORMS += \
         mainwindow.ui \
@@ -55,7 +57,8 @@ FORMS += \
     historyjka.ui \
     instrukcja.ui \
     przywitanie.ui \
-    muzyka.ui
+    muzyka.ui \
+    od_tworcow.ui
 
 RESOURCES += \
     resources.qrc

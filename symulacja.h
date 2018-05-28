@@ -21,6 +21,7 @@ private:
         unsigned int ludnosc,  chorzy=0;
         unsigned int powierzchnia;
         unsigned int  gestosc;
+        bool klimat;
         bool dos_morze;
         int health_care;
         int GNI;
@@ -32,6 +33,7 @@ private:
        string nazwa_choroby;
        int BRN;
        int czas;
+       bool czy_pasozyt;
     };
 
 
@@ -55,6 +57,7 @@ public:
 
      symulacja();     
      ~symulacja();
+
      void reset();
 
      //pomocnicze konstruktora
@@ -94,7 +97,7 @@ public:
      int dej_BRN(int i);
      int dej_czas(int i);
 
-
+     double ustaw_b(int i);
 
 };
 #endif // VECTOR_H

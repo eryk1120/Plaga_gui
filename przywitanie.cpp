@@ -52,3 +52,9 @@ void Przywitanie::on_ButInst_clicked()
 {
     QDesktopServices::openUrl(QUrl("Instrukcja.pdf"));
 }
+
+void Przywitanie::on_pushButton_clicked()
+{
+    odd.setModal(true);
+    odd.exec();
+}

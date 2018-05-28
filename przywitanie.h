@@ -1,6 +1,8 @@
 #ifndef PRZYWITANIE_H
 #define PRZYWITANIE_H
 
+#include "od_tworcow.h"
+
 #include <QDialog>
 #include <QImage>
 #include <QPixmap>
@@ -26,8 +28,12 @@ private slots:
 
     void on_ButInst_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Przywitanie *ui;
+
+    Od_Tworcow odd;
 
     QImage *menu = new QImage(":/IMG/MENU.png");
     QMediaPlayer *back;

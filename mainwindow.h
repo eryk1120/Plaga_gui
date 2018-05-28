@@ -38,6 +38,8 @@ public:
     void update_color_abs ();
     void odczytaj_plik();
 
+   // void muza_on();
+
 public slots:
 
 protected:
@@ -63,7 +65,9 @@ private slots:
 
     void on_ButMuzyka_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_ButMute_clicked();
+
+    void on_ButReset_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -79,7 +83,7 @@ public:
     QImage * matryca = new QImage(":/IMG/matryca.png");
     QImage * mapa = new QImage(":/IMG/Mapa.png");
 
-
+    QMediaPlayer *muza = new QMediaPlayer();
 
 };
 
