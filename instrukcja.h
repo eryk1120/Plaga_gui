@@ -17,22 +17,21 @@ public:
     explicit Instrukcja(QWidget *parent = 0);
     ~Instrukcja();
 
-    void dodaj_strone(QImage stronka);
+    void dodaj_strone(QImage stronka); //!dodaje element Qimage do wektora przechowującego strony instrukcji
 
-    int m=1;
 
 public slots:
 
-    void on_buttNext_clicked();
+    void on_buttNext_clicked(); //!załącza kolejny element wektora będący kolejną strona instrukcji
 
-    void on_Previous_clicked();
+    void on_Previous_clicked(); //!załącza poprzedni element wektora będący poprzednią stroną instrukcji
 
-    void on_ButFull_clicked();
+    void on_ButFull_clicked(); //!otwiera pełną instrukcję w formacie pdf
 
 private:
     Ui::Instrukcja *ui;
 
-    QVector <QImage> instrukcja;
+    QVector <QImage> instrukcja; //!Wektor obrazów będących elementami stronami instrukcji
 
 
     QImage *strona1 = new QImage(":/IMG/Strona1.png");

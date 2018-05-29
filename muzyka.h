@@ -17,24 +17,24 @@ public:
     explicit muzyka(QWidget *parent = 0);
     ~muzyka();
 
-    void mute();
+    void mute(); //!wycisza zalączoną muzyke
 
-    void unmute();
+    void unmute(); //!ponownie włącza dźwięk muzyki
 
-    void startow();
+    void startow(); //!zalącza oryginalna muzykę tła dla symulacji
 
-    void rewind();
+    void rewind();//!przewija i ponownie odtwarza muzykę
 
 private slots:
-    void on_ButWybierz_clicked();
+    void on_ButWybierz_clicked(); //! pozwala użytkownikowi wybrać plik mp3 do odpalenia w odtwarzaczu
 
-    void on_ButGraj_clicked();
+    void on_ButGraj_clicked(); //!odpala załączoną przez urzytkownika muzykę
 
-    void on_ButPausa_clicked();
+    void on_ButPausa_clicked(); //!zatrzymuje odpaloną muzykę
 
-    void on_ButStop_clicked();
+    void on_ButStop_clicked(); //!anuluje odpaloną muzykę
 
-    void on_horizontalSlider_valueChanged(int value);
+    void on_horizontalSlider_valueChanged(int value); //!ustawia głosność muzyki w zależności od wartości slidera
 
 
 private:

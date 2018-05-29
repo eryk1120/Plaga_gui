@@ -13,11 +13,11 @@ muzyka::muzyka(QWidget *parent) :
 
     connect(Muzyczka, &QMediaPlayer::positionChanged, [&](qint64 pos){
         ui->progressBar->setValue(pos);
-    });
+    }); //! ustawia wartość progres bar'a w zależności od muzyki
 
     connect(Muzyczka, &QMediaPlayer::durationChanged, [&](qint64 dur){
         ui->progressBar->setMaximum(dur);
-    });
+    }); //!ustawia wartość maksymalną progress bar'a w zależności od długości otworu
 
     ui->lineEdit->setText("Projekt Pandemic OST");
 }
