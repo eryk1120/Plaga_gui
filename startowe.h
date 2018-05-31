@@ -48,7 +48,7 @@ private:
     symulacja * virus1 = new symulacja ();
 public:
     QString nazwa;
-    int m,r, mk, rk;
+    int m,r, mk, rk; //! zmienne odpowiadające kolejno za: miesiąc, rok, miesiąc końcowy i rok końcowy
 
     QImage * wirus = new QImage(":/IMG/Wirus.png");
     QImage * bakteria = new QImage(":/IMG/Bakteria.png");

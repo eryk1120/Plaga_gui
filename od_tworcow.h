@@ -17,12 +17,13 @@ public:
     explicit Od_Tworcow(QWidget *parent = 0);
     ~Od_Tworcow();
 
-    void dodaj_strone(QImage stronka);
+    void dodaj_strone(QImage stronka); //!dodaje element Qimage do wektora przechowującego strony instrukcji
 
 private slots:
-    void on_previous_clicked();
+    void on_previous_clicked(); //!załącza poprzedni element wektora będący poprzednią stroną instrukcji
 
-    void on_next_clicked();
+    void on_next_clicked(); //!załącza kolejny element wektora będący kolejną strona instrukcji
+
 
 private:
     Ui::Od_Tworcow *ui;

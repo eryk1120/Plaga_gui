@@ -55,16 +55,14 @@ public:
      * aktualizuje kolor całego świata
      */
     void update_color_abs ();
-    void odczytaj_plik();
 
-   // void muza_on();
 
 public slots:
 
 protected:
-    void mousePressEvent(QMouseEvent *ev) override;
+    void mousePressEvent(QMouseEvent *ev) override; //! funkcja odbiera od systemu aktulną pozycję wskaźnieka myszki we współrzędnych pikselowych po czym odczytuje barwę danego pola w barwch qRGB, odnajduje indeks odpowiadającego mu państwa i wyświetla dane w oknie informacyjnym
 
-        QString zapisywanie();
+        QString zapisywanie(); //!funkcja zapisuje obraz mapy głównego ingterfejsu wykorzystując do tego aktlany czas systemu komputera w formacie "data-godzina".png
 
 private slots:
     void on_start_clicked();

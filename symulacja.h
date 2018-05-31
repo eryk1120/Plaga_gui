@@ -47,7 +47,7 @@ private:
         unsigned int  gestosc;
         /*!
          * \brief klimat
-         * klimat (0-7) zwrotnikowy-okołobiegunowy
+         *  dana czy klimat ma wpływ na rozpirzestrzenianie się
          */
         bool klimat;
         /*!
@@ -74,10 +74,10 @@ private:
 
     struct Choroby
     {
-       string nazwa_choroby;
-       int BRN;
-       int czas;
-       bool czy_pasozyt;
+       string nazwa_choroby; //! Nazwy dostępnych w symulacji chorób
+       int BRN; //! Basic Reproductive Number odpowiadający ilości przypadków zarażenia generowanych przez jeden obiekt w czasie inkubacyjnym choroby w zdrowym społeczeństwie
+       int czas; //!czas inkubacyjny choroby
+       bool czy_pasozyt; //! zmienna 0/1 mówiąca czy dana choroba jest wywołana pasożytem lub innym źródłem
     };
 
 
@@ -133,7 +133,7 @@ public:
       * ścieżka pliku z którego ma pobrać dane
       */
      void dodaj_element(string nazwa_pliku);// tworzy wektor z krajami
-     void dodaj_chorby(string nazwa_pliku);
+     void dodaj_chorby(string nazwa_pliku); //!tworzy wektor z danymi chorób
      /*!
       * \brief czytaj_macierz
       * dodaje do wektora listy sąsiadów
@@ -175,8 +175,8 @@ public:
 
      //utility
 
-     int size();
-     int size2();
+     int size(); //! zwraca wielkość  wektora Kraje
+     int size2(); //! zwraca wielkość wektora Choroby
 
      void infect(int i,int liczba);
      /*!
@@ -202,7 +202,7 @@ public:
       */
      void set_koniec(int m, int r);
 
-     string dej_chorbe(int);
+     string dej_chorbe(int); //! zwraca indeks wybranej choroby
      string dej_nazwe(int);
      /*!
       * \brief dej_ludnosc
@@ -222,8 +222,8 @@ public:
       * \return powierzchnia państwa
       */
      int dej_powierzchnia(int i);
-     int dej_ratio(int i);
-     int dej_BRN(int i);
+     int dej_ratio(int i); //! zwraca procentowy stosunek liczby chorych do całkowitej liczby ludności
+     int dej_BRN(int i); //! zwraca współczynnik BRN wybranej choroby
      /*!
       * \brief dej_czas
       * \param i indeks państwa
@@ -231,7 +231,7 @@ public:
       */
      int dej_czas(int i);
 
-     double ustaw_b(int i);
+     double ustaw_b(int i); //! funkcja ustala wartość współczynnika klimatycznego w zależności od wybranego państwa, aktualnego miesiąca oraz typu choroby
 
 };
 #endif // VECTOR_H

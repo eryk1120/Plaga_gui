@@ -120,6 +120,7 @@ void MainWindow::mousePressEvent(QMouseEvent *ev)
     ui->Powierzchnia->setText(QString::number(P));
 
 
+
 }
 
 QString MainWindow::zapisywanie()

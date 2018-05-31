@@ -33,17 +33,17 @@ int ::czas::odstep_miedzy( czas K)
     int counter=0;
     if (this->miesiac < K.miesiac)
     {
-        counter = this->miesiac - K.miesiac;
+        counter = K.miesiac - this->miesiac  ;
     }
     else if(this->miesiac > K.miesiac)
     {
-        counter = -(this->miesiac - K.miesiac);
+        counter = (this->miesiac - K.miesiac);
     }
     else
     {
 
     }
-    counter += (K.rok - this->rok * 12);
+    counter += ((K.rok - this->rok) * 12);
     return counter;
 
 }

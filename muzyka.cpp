@@ -12,7 +12,7 @@ muzyka::muzyka(QWidget *parent) :
     Muzyczka = new QMediaPlayer(this);
 
     connect(Muzyczka, &QMediaPlayer::positionChanged, [&](qint64 pos){
-        ui->progressBar->setValue(pos);
+        ui->progressBar->setValue(pos); //! ustawia wartość progress bara w
     });
 
     connect(Muzyczka, &QMediaPlayer::durationChanged, [&](qint64 dur){
@@ -61,6 +61,7 @@ void muzyka::on_ButWybierz_clicked()
         if(plik_nazwa.isEmpty())
         {
             Muzyczka->setMedia(QUrl("qrc:/SFX/BG.mp3"));
+            Muzyczka->play();
             return;
         }
         ui->lineEdit->setText(plik_nazwa);
